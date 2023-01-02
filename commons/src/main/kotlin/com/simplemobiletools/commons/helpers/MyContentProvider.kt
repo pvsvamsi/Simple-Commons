@@ -6,7 +6,7 @@ import com.simplemobiletools.commons.models.SharedTheme
 
 class MyContentProvider {
     companion object {
-        private const val AUTHORITY = "com.simplemobiletools.commons.provider"
+        private const val AUTHORITY = "in.runo.commons.provider"
         const val SHARED_THEME_ACTIVATED = "com.simplemobiletools.commons.SHARED_THEME_ACTIVATED"
         const val SHARED_THEME_UPDATED = "com.simplemobiletools.commons.SHARED_THEME_UPDATED"
         val MY_CONTENT_URI = Uri.parse("content://$AUTHORITY/themes")
