@@ -1,6 +1,7 @@
 <resources>
     <string name="ok">OK</string>
     <string name="cancel">Zrušiť</string>
+    <string name="back">Späť</string>
     <string name="nothing">Nič</string>
     <string name="later">Neskôr</string>
     <string name="save_as">Uložiť ako</string>
@@ -64,6 +65,11 @@
     <string name="disclaimer">Upozornenie</string>
     <string name="take_photo">Vytvoriť fotku</string>
     <string name="choose_photo">Zvoliť fotku</string>
+    <string name="choose_video">Zvoliť video</string>
+    <string name="choose_contact">Zvoliť kontakt</string>
+    <string name="choose_file">Zvoliť súbor</string>
+    <string name="record_audio">Nahrať audio</string>
+    <string name="record_video">Nahrať video</string>
 
     <!-- Events -->
     <string name="birthday">Narodeniny</string>
@@ -94,6 +100,11 @@
     <string name="landscape_column_count">Počet stĺpcov v zobrazení na šírku</string>
     <string name="change_cover_image">Zmeniť obal albumu</string>
     <string name="select_photo">Zvoliť foto</string>
+    <plurals name="column_counts">
+        <item quantity="one">%d stĺpec</item>
+        <item quantity="few">%d stĺpce</item>
+        <item quantity="other">%d stĺpcov</item>
+    </plurals>
 
     <!-- Blocked numbers -->
     <string name="manage_blocked_numbers">Spravovať blokované čísla</string>
@@ -110,6 +121,7 @@
     <string name="block_unknown_calls">Blokovať volania od neuložených kontaktov</string>
     <string name="block_unknown_messages">Blokovať správy od neuložených kontaktov</string>
     <string name="add_blocked_number_helper_text">Zadajte číslo, alebo vzor (napr. *12345*, +421*8888) pre blokovanie hovorov a správ z čísel, ktoré spadajú pod daný vzor.</string>
+    <string name="must_make_default_caller_id_app">Nedá sa blokovať neznáme čísla bez prístupu ku správe ID.</string>
 
     <!-- Favorites -->
     <string name="favorites">Obľúbené</string>
@@ -118,8 +130,25 @@
     <string name="remove_from_favorites">Odstrániť spomedzi obľúbených</string>
 
     <!-- Search -->
-    <string name="search">Hľadať</string>
+    <string name="search">Vyhľadávanie</string>
     <string name="type_2_characters">Zadajte aspoň 2 znaky pre spustenie hľadania.</string>
+    <string name="search_contacts">Vyhľadať kontakty</string>
+    <string name="search_favorites">Vyhľadať obľúbené</string>
+    <string name="search_apps">Vyhľadať apky</string>
+    <string name="search_events">Vyhľadať udalosti</string>
+    <string name="search_groups">Vyhľadať skupiny</string>
+    <string name="search_history">Vyhľadať v histórii</string>
+    <string name="search_calls">Vyhľadať hovor</string>
+    <string name="search_files">Vyhľadať súbory</string>
+    <string name="search_folders">Vyhľadať priečinky</string>
+    <string name="search_files_and_folders">Vyhľadať súbory a priečinky</string>
+    <string name="search_playlists">Vyhľadať playlisty</string>
+    <string name="search_artists">Vyhľadať interpretov</string>
+    <string name="search_albums">Vyhľadať albumy</string>
+    <string name="search_tracks">Vyhľadať skladby</string>
+    <string name="search_text">Vyhľadať text</string>
+    <string name="search_conversations">Vyhľadať konverzácie</string>
+    <string name="search_recordings">Vyhľadať nahrávky</string>
 
     <!-- Filters -->
     <string name="filter">Filtrovať</string>
@@ -133,6 +162,7 @@
     <string name="no_camera_permissions">Je potrebné povolenie pre prístup ku kamere</string>
     <string name="no_audio_permissions">Je potrebné povolenie pre prístup ku zvuku</string>
     <string name="no_post_notifications_permissions">Je potrebné povolenie na zobrazovanie upozornení</string>
+    <string name="no_permission">Chýba oprávnenie</string>
 
     <!-- Renaming -->
     <string name="rename_file">Premenovať súbor</string>
@@ -311,6 +341,7 @@
     <string name="discard">Zahodiť</string>
     <string name="undo_changes">Vrátiť zmeny</string>
     <string name="undo_changes_confirmation">Ste si istý, že chcete vrátiť zmeny?</string>
+    <string name="cannot_be_undone">Táto akcia sa nedá vrátiť späť.</string>
     <string name="save_before_closing">Máte neuložené zmeny. Chcete ich uložiť pred ukončením?</string>
     <string name="apply_to_all_apps">Použiť farby na všetky Jednoduché Aplikácie</string>
     <string name="app_icon_color_warning">UPOZORNENIE: Niektoré spúšťače zariadení nepodporujú úpravu ikoniek. V prípade, že ikonka apky zmizne, ju skúste spustiť cez Google Play, alebo nejaký widget, ak je dostupný.
@@ -346,6 +377,7 @@
     <string name="rename">Premenovať</string>
     <string name="share">Zdieľať</string>
     <string name="share_via">Zdieľať cez</string>
+    <string name="resize">Zmeniť veľkosť</string>
     <string name="select_all">Označiť všetko</string>
     <string name="select_text">Označiť text</string>
     <string name="hide">Skryť</string>
@@ -377,6 +409,7 @@
     <string name="call">Zavolať</string>
     <string name="contact_details">Detaily kontaktu</string>
     <string name="add_contact">Pridať kontakt</string>
+    <string name="wallpapers">Tapety</string>
 
     <!-- Sorting -->
     <string name="sort_by">Na zoradenie použiť</string>
@@ -404,6 +437,7 @@
     <!-- Confirmation dialog -->
     <string name="proceed_with_deletion">Ste si istý, že chcete pokračovať s vymazaním?</string>
     <string name="deletion_confirmation">Ste si istý, že chcete vymazať %s?</string>    <!-- Are you sure you want to delete 5 items? -->
+    <string name="deletion_confirmation_short">Odstrániť %s?</string>
     <string name="move_to_recycle_bin_confirmation">Ste si istý, že chcete vyhodiť %s do koša?</string>    <!-- Are you sure you want to move 3 items into the Recycle Bin? -->
     <string name="are_you_sure_delete">Ste si istý, že chcete vymazať túto položku?</string>
     <string name="are_you_sure_recycle_bin">Ste si istý, že chcete vyhodiť túto položku do odpadkového koša?</string>
@@ -688,6 +722,17 @@
     <string name="thumbnails">Miniatúry</string>
     <string name="list_view">Zobrazenie zoznamu</string>
 
+    <!-- Excluding -->
+    <string name="exclude">Vylúčiť</string>
+    <string name="exclude_folder">Vylúčiť priečinok</string>
+    <string name="excluded_folders">Vylúčené priečinky</string>
+    <string name="excluded">(vylúčené)</string>
+    <string name="manage_excluded_folders">Spravovať vylúčené priečinky</string>
+    <string name="remove_all">Odstrániť všetky</string>
+    <string name="remove_all_description">Odstrániť všetky priečinky zo zoznamu vylúčených\? Táto operácia neodstráni samotný obsah priečinkov.</string>
+    <string name="temporarily_show_excluded">Dočasne zobraziť vylúčené</string>
+    <string name="stop_showing_excluded">Ukončiť zobrazovanie vylúčených</string>
+
     <!-- Default tab to open -->
     <string name="manage_shown_tabs">Spravovať zobrazené karty</string>
     <string name="default_tab_to_open">Karta otvorená po spustení apky</string>
@@ -823,7 +868,7 @@
     <string name="privacy_policy">Ochrana osobných údajov</string>
     <string name="version_placeholder">Verzia %s</string>
     <string name="hello">Ahoj :)</string>
-    <string name="about_footer">Vyrobené so &#10084;&#65039; na Slovensku</string>
+    <string name="about_footer">Vyrobené zo &#10084;&#65039; na Slovensku</string>
     <string name="additional_info">Dodatočné informácie</string>
     <string name="app_version">Verzia aplikácie: %s</string>
     <string name="device_os">Operačný systém zariadenia: %s</string>
@@ -834,7 +879,8 @@
             Ďakujem!
         ]]>
     </string>
-    <string name="donate_new">Zdravím,&lt;br&gt;&lt;br&gt;dúfame, že sa vám naša apka páči. Neobsahuje žiadne reklamy a ani nezbiera vaše údaje, podporte prosíme jej vývoj zakúpením aplikácie &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Jednoduché ďakujem&lt;/a&gt;. Budete tým mať zároveň odomknuté všetky funkcie a zmenu farieb.&lt;br&gt;&lt;br&gt;Ďakujeme!</string>
+    <string name="donate_new">Zdravím,&lt;br&gt;&lt;br&gt;dúfame, že sa vám naša apka páči. Neobsahuje žiadne reklamy a ani nezbiera vaše údaje, podporte prosíme jej vývoj zakúpením aplikácie &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Jednoduché ďakujem&lt;/a&gt;. Budete tým mať zároveň odomknuté všetky funkcie vrátane zmeny farieb.&lt;br&gt;&lt;br&gt;Ďakujeme!</string>
+    <string name="donate_short">Podporte nás prosím kúpou &lt;a href=https://play.google.com/store/apps/details?id=com.simplemobiletools.thankyou&gt;Jednoduchého Ďakujem&lt;/a&gt;, odomkne to zároveň všetky funkcie apky vrátane zmeny farieb.</string>
     <string name="purchase">Zakúpiť</string>
     <string name="get_simple_phone">Objednať Jednoduchý Telefón</string>
     <string name="update_thank_you">Prosím aktualizujte Jednoduché Ďakujem na najnovšiu verziu</string>
@@ -875,6 +921,7 @@
     <string name="simple_flashlight">Jednoduchá baterka</string>
     <string name="simple_gallery">Jednoduchá galéria</string>
     <string name="simple_keyboard">Jednoduchá klávesnica</string>
+    <string name="simple_launcher">Jednoduchý spúšťač</string>
     <string name="simple_music_player">Jednoduchý hudobný prehrávač</string>
     <string name="simple_notes">Jednoduché poznámky</string>
     <string name="simple_sms_messenger">Jednoduché SMS správy</string>
@@ -893,6 +940,7 @@
     <string name="flashlight_short">Batéria</string>
     <string name="gallery_short">Galéria</string>
     <string name="keyboard_short">Klávesnica</string>
+    <string name="launcher_short">Spúšťač</string>
     <string name="music_player_short">Hudobný prehrávač</string>
     <string name="notes_short">Poznámky</string>
     <string name="sms_messenger_short">SMS správy</string>
@@ -1011,6 +1059,7 @@
 
     <!-- Gallery Pro -->
     <string name="why_upgrade_advanced_photo_editor">Pokročilý editor fotiek</string>
+    <string name="why_upgrade_advanced_photo_video_editor">Pokročilý editor fotiek a videí</string>
     <string name="why_upgrade_heic_support">Podpora pre súbory HEIC/HEIF</string>
     <string name="why_upgrade_batch_renaming">Pokročilé skupinové premenovávanie súborov</string>
     <string name="why_upgrade_folder_locking">Uzamykanie jednotlivých priečinkov</string>
@@ -1078,7 +1127,7 @@
     <string name="audio_record_view_title">Audio Record View (vizualizácia zvukov)</string>
     <string name="sms_mms_title">SMS MMS (spravovanie SMS a MMS)</string>
     <string name="apng_title">APNG Android (podpora pre animované WebP súbory)</string>
-    <string name="pdf_viewer_title">Android PdfViewer (prehliadač PDF súborov)</string>
+    <string name="pdf_view_pager_title">PDFViewPager (prehliadač PDF súborov)</string>
     <string name="m3u_parser_title">M3U Parser (správa playlistových súborov m3u)</string>
     <string name="android_lame_title">AndroidLame (mp3 enkóder)</string>
 

@@ -34,7 +34,16 @@ fun Context.getProperPrimaryColor() = when {
 
 fun Context.getProperStatusBarColor() = when {
     baseConfig.isUsingSystemTheme -> resources.getColor(R.color.you_status_bar_color, theme)
-    else -> baseConfig.primaryColor
+    else -> getProperBackgroundColor()
+}
+
+// get the color of the statusbar with material activity, if the layout is scrolled down a bit
+fun Context.getColoredMaterialStatusBarColor(): Int {
+    return if (baseConfig.isUsingSystemTheme) {
+        resources.getColor(R.color.you_status_bar_color, theme)
+    } else {
+        getProperPrimaryColor()
+    }
 }
 
 fun Context.updateTextColors(viewGroup: ViewGroup) {
@@ -129,9 +138,8 @@ fun Context.getSharedThemeSync(cursorLoader: CursorLoader): SharedTheme? {
                 val primaryColor = cursor.getIntValue(MyContentProvider.COL_PRIMARY_COLOR)
                 val accentColor = cursor.getIntValue(MyContentProvider.COL_ACCENT_COLOR)
                 val appIconColor = cursor.getIntValue(MyContentProvider.COL_APP_ICON_COLOR)
-                val navigationBarColor = cursor.getIntValueOrNull(MyContentProvider.COL_NAVIGATION_BAR_COLOR) ?: INVALID_NAVIGATION_BAR_COLOR
                 val lastUpdatedTS = cursor.getIntValue(MyContentProvider.COL_LAST_UPDATED_TS)
-                return SharedTheme(textColor, backgroundColor, primaryColor, appIconColor, navigationBarColor, lastUpdatedTS, accentColor)
+                return SharedTheme(textColor, backgroundColor, primaryColor, appIconColor, lastUpdatedTS, accentColor)
             } catch (e: Exception) {
             }
         }

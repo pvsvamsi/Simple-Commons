@@ -2,6 +2,7 @@ package com.simplemobiletools.commons.extensions
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Dialog
 import android.app.TimePickerDialog
 import android.content.*
 import android.content.Intent.EXTRA_STREAM
@@ -90,11 +91,6 @@ fun Activity.appLaunched(appId: String) {
         if (!resources.getBoolean(R.bool.hide_google_relations)) {
             RateStarsDialog(this)
         }
-    }
-
-    if (baseConfig.navigationBarColor == INVALID_NAVIGATION_BAR_COLOR && (window.attributes.flags and WindowManager.LayoutParams.FLAG_FULLSCREEN == 0)) {
-        baseConfig.defaultNavigationBarColor = window.navigationBarColor
-        baseConfig.navigationBarColor = window.navigationBarColor
     }
 }
 
@@ -302,11 +298,16 @@ fun Activity.launchPurchaseThankYouIntent() {
 }
 
 fun Activity.launchUpgradeToProIntent() {
+    hideKeyboard()
     try {
         launchViewIntent("market://details?id=${baseConfig.appId.removeSuffix(".debug")}.pro")
     } catch (ignored: Exception) {
         launchViewIntent(getStoreUrl())
     }
+}
+
+fun Activity.launchMoreAppsFromUsIntent() {
+    launchViewIntent("https://play.google.com/store/apps/dev?id=9070296388022589266")
 }
 
 fun Activity.launchViewIntent(id: Int) = launchViewIntent(getString(id))
@@ -402,6 +403,26 @@ fun Activity.sharePathsIntent(paths: List<String>, applicationId: String) {
     }
 }
 
+fun Activity.setAsIntent(path: String, applicationId: String) {
+    ensureBackgroundThread {
+        val newUri = getFinalUriFromPath(path, applicationId) ?: return@ensureBackgroundThread
+        Intent().apply {
+            action = Intent.ACTION_ATTACH_DATA
+            setDataAndType(newUri, getUriMimeType(path, newUri))
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            val chooser = Intent.createChooser(this, getString(R.string.set_as))
+
+            try {
+                startActivityForResult(chooser, REQUEST_SET_AS)
+            } catch (e: ActivityNotFoundException) {
+                toast(R.string.no_app_found)
+            } catch (e: Exception) {
+                showErrorToast(e)
+            }
+        }
+    }
+}
+
 fun Activity.shareTextIntent(text: String) {
     ensureBackgroundThread {
         Intent().apply {
@@ -419,26 +440,6 @@ fun Activity.shareTextIntent(text: String) {
                 } else {
                     showErrorToast(e)
                 }
-            } catch (e: Exception) {
-                showErrorToast(e)
-            }
-        }
-    }
-}
-
-fun Activity.setAsIntent(path: String, applicationId: String) {
-    ensureBackgroundThread {
-        val newUri = getFinalUriFromPath(path, applicationId) ?: return@ensureBackgroundThread
-        Intent().apply {
-            action = Intent.ACTION_ATTACH_DATA
-            setDataAndType(newUri, getUriMimeType(path, newUri))
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            val chooser = Intent.createChooser(this, getString(R.string.set_as))
-
-            try {
-                startActivityForResult(chooser, REQUEST_SET_AS)
-            } catch (e: ActivityNotFoundException) {
-                toast(R.string.no_app_found)
             } catch (e: Exception) {
                 showErrorToast(e)
             }
@@ -541,7 +542,7 @@ fun BaseSimpleActivity.launchCallIntent(recipient: String, handle: PhoneAccountH
         Intent(action).apply {
             data = Uri.fromParts("tel", recipient, null)
 
-            if (isMarshmallowPlus() && handle != null) {
+            if (handle != null) {
                 putExtra(TelecomManager.EXTRA_PHONE_ACCOUNT_HANDLE, handle)
             }
 
@@ -1514,6 +1515,9 @@ fun Activity.setupDialogStuff(
             setView(view)
             setCancelable(cancelOnTouchOutside)
             show()
+            getButton(Dialog.BUTTON_POSITIVE)?.setTextColor(primaryColor)
+            getButton(Dialog.BUTTON_NEGATIVE)?.setTextColor(primaryColor)
+            getButton(Dialog.BUTTON_NEUTRAL)?.setTextColor(primaryColor)
             callback?.invoke(this)
         }
     } else {
