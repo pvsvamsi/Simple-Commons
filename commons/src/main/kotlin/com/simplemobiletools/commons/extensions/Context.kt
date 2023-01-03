@@ -444,7 +444,7 @@ fun Context.getUriMimeType(path: String, newUri: Uri): String {
     return mimeType
 }
 
-fun Context.isThankYouInstalled() = isPackageInstalled("com.simplemobiletools.thankyou")
+fun Context.isThankYouInstalled() = isPackageInstalled("in.runo.call_crm")
 
 fun Context.isOrWasThankYouInstalled(): Boolean {
     return when {
